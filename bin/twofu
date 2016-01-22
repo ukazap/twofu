@@ -2,6 +2,12 @@
 require 'rotp'
 require 'terminal-table'
 require 'yaml'
+require 'twofu'
+
+if ["-v", "--version"].include? ARGV.first
+  puts "Twofu #{Twofu::VERSION}"
+  exit
+end
 
 the_secrets = Dir.home + "/.twofu.yml"
 

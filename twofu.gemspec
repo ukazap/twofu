@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'twofu/version'
+require 'twofu'
 
 Gem::Specification.new do |spec|
   spec.name          = "twofu"
@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
     raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
   end
 
-  spec.files         = ["bin/twofu", "LICENSE.txt", "README.md"]
+  spec.files         = ["bin/twofu", "lib/twofu.rb", "LICENSE.txt", "README.md"]
   spec.executables   = ["twofu"]
   spec.require_paths = ["lib"]
 

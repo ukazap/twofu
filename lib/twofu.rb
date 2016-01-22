@@ -1,5 +1,3 @@
-require "twofu/version"
-
 module Twofu
-  # Your code goes here...
+  VERSION = "0.1.0"
 end
