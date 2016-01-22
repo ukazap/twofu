@@ -3,7 +3,7 @@ require 'rotp'
 require 'terminal-table'
 require 'yaml'
 
-the_secrets = Dir.home + "/.config/twofu.yml"
+the_secrets = Dir.home + "/.twofu.yml"
 
 begin
   rows = []
@@ -18,12 +18,8 @@ begin
 
   elapsed = Time.now.to_i % 30
   remaining = 30 - elapsed
-  puts " #{"█"*elapsed}#{"▓"*remaining} #{remaining} sec. until next codes."
+  puts "[#{"="*elapsed}#{" "*remaining}] #{remaining}s"
 rescue Exception => e
   puts "Duh. #{e}"
-  puts "Please store your accounts with correct format: `label: SOMEBASE32SECRET`, e.g.
-  Work mail: WEYKQLXLRGJ5G3Q5
-  TARDIS: VC3JCX4QWWVT2R3Y
-  Bank of Karabraxos: AI5OCPI73KCKFZCD
-inside the #{the_secrets} file."
+  puts "Please store your accounts with correct format: `Account Name: SOMEBASE32SECRET` into #{the_secrets}"
 end
