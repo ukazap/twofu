@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
     raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
   end
 
-  spec.files         = ["bin/twofu"]
+  spec.files         = ["bin/twofu", "LICENSE.txt", "README.md"]
   spec.executables   = ["twofu"]
   spec.require_paths = ["lib"]
 

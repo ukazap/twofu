@@ -1,41 +1,46 @@
-# Twofu
+# Twofu: A two-factor authenticator command-line app.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/twofu`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Twofu is a compatible command-line alternative to Google Authenticator which allows you to get 2FA codes when you aren't near your phone, quickly. It will show you current, previous and next codes for each account you have, as well as telling you how many seconds until they expires.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'twofu'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Simply install this gem:
 
     $ gem install twofu
 
 ## Usage
 
-TODO: Write usage instructions here
+Before using this app, you should prepare a file in which you will store all your secrets:
 
-## Development
+    $ touch ~/.twofu.yml
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Add your secret in the form of `Account Name: SOMEBASE32SECRET` (notice the space after semicolon, it's important) e.g.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+    $ echo "The TARDIS: BZCZ3OUC5BUJEYYC" >> ~/.twofu.yml
+    $ echo "Bank of Karabraxos: Z44QN4EZK76H5MVG" >> ~/.twofu.yml
+
+Enjoy the tofu:
+
+    $ twofu
+    +--------------------+--------+--------+--------+
+    | account            | prev   | now    | next   |
+    +--------------------+--------+--------+--------+
+    | The TARDIS         | 754027 | 907055 | 423897 |
+    | Bank of Karabraxos | 062481 | 361305 | 534213 |
+    +--------------------+--------+--------+--------+
+    [===============               ] 15s
+
+## Thanks
+
+Twofu is made possible thanks to these awesome gems:
+
+  - [rotp](https://github.com/mdp/rotp)
+  - [terminal-table](https://github.com/tj/terminal-table)
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/twofu.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/ukazap/twofu.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
