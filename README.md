@@ -1,4 +1,4 @@
-# Twofu: A two-factor authenticator command-line app.
+# Twofu: A Two-factor Authenticator Command-line App
 
 Twofu is a compatible command-line alternative to Google Authenticator which allows you to get 2FA codes when you aren't near your phone, quickly. It will show you current, previous and next codes for each account you have, as well as telling you how many seconds until they expires.
 
@@ -14,7 +14,7 @@ Before using this app, you should prepare a file in which you will store all you
 
     $ touch ~/.twofu.yml
 
-Add your secret in the form of `Account Name: SOMEBASE32SECRET` (notice the space after semicolon, it's important) e.g.
+Add your secret in the form of `Account Name: SOMEBASE32SECRET` (notice the space after colon, it's important) e.g.
 
     $ echo "The TARDIS: BZCZ3OUC5BUJEYYC" >> ~/.twofu.yml
     $ echo "Bank of Karabraxos: Z44QN4EZK76H5MVG" >> ~/.twofu.yml
@@ -36,6 +36,8 @@ Twofu is made possible thanks to these awesome gems:
 
   - [rotp](https://github.com/mdp/rotp)
   - [terminal-table](https://github.com/tj/terminal-table)
+
+Twofu is a clone of [gauth](https://github.com/pcarrier/gauth) (which is not too bad for the first gem that I made, I guess).
 
 ## Contributing
 
