@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+require 'rotp'
+require 'terminal-table'
+require 'yaml'
+
+the_secrets = Dir.home + "/.config/twofu.yml"
+
+begin
+  rows = []
+  now = Time.now
+  accounts = File.open(the_secrets) { |io| YAML.load(io) }
+  accounts.each do |label, secret|
+    acct = ROTP::TOTP.new secret
+    rows << [label, acct.at(now - 30), acct.now, acct.at(now + 30)]
+  end
+  
+  puts Terminal::Table.new headings: ["account", "prev", "now", "next"], rows: rows
+
+  elapsed = Time.now.to_i % 30
+  remaining = 30 - elapsed
+  puts " #{"█"*elapsed}#{"▓"*remaining} #{remaining} sec. until next codes."
+rescue Exception => e
+  puts "Duh. #{e}"
+  puts "Please store your accounts with correct format: `label: SOMEBASE32SECRET`, e.g.
+  Work mail: WEYKQLXLRGJ5G3Q5
+  TARDIS: VC3JCX4QWWVT2R3Y
+  Bank of Karabraxos: AI5OCPI73KCKFZCD
+inside the #{the_secrets} file."
+end
