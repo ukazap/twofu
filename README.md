@@ -1,6 +1,4 @@
-[![Gem Version](https://badge.fury.io/rb/twofu.svg)](https://badge.fury.io/rb/twofu) [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=ukazap&url=https://github.com/ukazap/twofu&title=Twofu&tags=ruby,two_factor_authentication,2fa,authenticator,command_line&category=software)
-
-<script id='fbzv3c6'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//button.flattr.com/view/?fid=z7g35d&button=compact&url='+encodeURIComponent(document.URL);f.title='Flattr';f.height=20;f.width=110;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbzv3c6');</script>
+[![Gem Version](https://badge.fury.io/rb/twofu.svg)](https://badge.fury.io/rb/twofu)
 
 # Twofu
 A Two-factor Authenticator Command-line App
